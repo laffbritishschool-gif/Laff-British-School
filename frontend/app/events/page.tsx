@@ -1,0 +1,1 @@
+export default function Page(){return <section className="section"><div className="container"><p className="eyebrow">EVENTS</p><h1>School events</h1><div className="empty-state"><div className="empty-icon">+</div><h3>Events calendar ready</h3><p>Event records will be connected to the school administration system.</p></div></div></section>}

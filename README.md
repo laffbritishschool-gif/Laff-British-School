@@ -1,55 +1,60 @@
-# Laff British Montessori School — Backend API
+# Laff British Montessori School
 
-This repository now contains **backend/API code only**. The public website and student/admin frontend will live in a separate frontend repository and connect to this API over HTTPS.
+School website and secure student-service frontend, with the existing Express backend kept in the repository root.
 
-## Stack
+## Frontend
 
-- Node.js + Express + TypeScript
-- Helmet for security headers
-- CORS for the separate frontend
-- Rate limiting
-- Zod environment validation
-- Render Web Service deployment
+The `frontend/` app is a Next.js static-export website using TypeScript and custom CSS in the school colours: blue and yellow.
 
-## Local development
+Included public pages:
+- Home
+- About Us
+- Principal’s Message
+- Academics
+- Admissions
+- School News
+- Events
+- Gallery
+- Staff
+- Contact Us
+- Secure Result Checker
+- Student Login
+- Student Dashboard
+- Student ID Card
+
+The result checker and ID card screens are intentionally prepared for backend integration. They do not invent or expose student records before the secure API is connected.
+
+## Backend
+
+The existing Express + TypeScript API remains at the repository root. It is currently a foundation with health checking, security middleware, CORS, rate limiting and environment validation. The full school management API will be implemented next.
+
+## Local frontend development
 
 ```bash
+cd frontend
 npm install
 npm run dev
 ```
 
-Production build:
+Static production build:
 
 ```bash
 npm run build
-npm start
 ```
 
-Health check:
+The static output is generated in `frontend/out`.
 
-```text
-GET /health
-```
+## Environment
 
-API base:
+Copy `frontend/.env.example` to `frontend/.env.local` and set the backend API URL when the API is deployed.
 
-```text
-/api/v1
-```
+## Roadmap
 
-## Architecture
-
-```text
-Frontend repository
-       |
-       | HTTPS / REST API
-       v
-Laff British School Backend
-       |
-       v
-Database / Auth / Storage / Payments
-```
-
-The backend will contain authentication, RBAC, students, classes, subjects, teachers, results, attendance, assignments, fees, payments, timetable, announcements, news, sessions, settings, audit logs and the secure public result-checking API.
-
-**Important:** no frontend files are kept in this repository.
+1. Connect Supabase PostgreSQL/Auth/Storage.
+2. Implement authenticated roles: Super Admin, Admin, Teacher and Student.
+3. Implement students, classes, subjects, teachers and session/term management.
+4. Implement result entry, grading, publication, imports and printable result sheets.
+5. Connect the public result checker with rate limiting, PIN/token support and audit logging.
+6. Generate secure student ID cards with photo, school details and verification QR code.
+7. Add attendance, assignments, timetable, fees and Paystack payment verification.
+8. Deploy frontend and backend separately on Render.
