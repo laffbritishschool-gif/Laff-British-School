@@ -1,0 +1,4 @@
+import SiteHeader from '@/app/components/site-header';
+import SiteFooter from '@/app/components/site-footer';
+const roles=['School Leadership','Academic Staff','Montessori & Early Years Team','Administration & Support'];
+export default function StaffPage(){return <><SiteHeader/><main><section className="page-hero"><span className="eyebrow">Our staff</span><h1>Dedicated people. One school community.</h1><p>Our staff work together to create a safe, engaging and purposeful environment for every learner.</p></section><section className="section"><div className="grid-3">{roles.map((role,i)=><article className="card" key={role}><div className="card-icon">0{i+1}</div><h3>{role}</h3><p>Staff profiles and photographs will be managed through the school administration system.</p></article>)}</div></section></main><SiteFooter/></>}
