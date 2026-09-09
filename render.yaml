@@ -1,8 +1,14 @@
 services:
   - type: web
-    runtime: static
-    name: laff-british-school-frontend
+    runtime: node
+    name: laff-british-school-backend
     branch: main
     buildCommand: npm install && npm run build
-    staticPublishPath: ./out
+    startCommand: npm start
     autoDeploy: true
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
