@@ -1,0 +1,6 @@
+import SiteHeader from '@/app/components/site-header';
+import SiteFooter from '@/app/components/site-footer';
+
+export default function AboutPage() {
+  return <><SiteHeader/><main><section className="page-hero"><span className="eyebrow">About us</span><h1>Laff British Montessori School</h1><p>A caring, ambitious learning community focused on academic growth, character development and confident leadership.</p></section><section className="section"><div className="section-head"><span className="eyebrow">Who we are</span><h2>Growing learners who are ready for the future.</h2><p>We provide a supportive educational environment where children are encouraged to explore, think independently, develop strong values and discover their potential.</p></div><div className="grid-3"><article className="card"><h3>Our Mission</h3><p>To provide purposeful learning that develops knowledge, confidence, discipline and good character.</p></article><article className="card"><h3>Our Vision</h3><p>To nurture capable, compassionate and responsible young people prepared to contribute positively to society.</p></article><article className="card"><h3>Our Values</h3><p>Excellence, integrity, respect, responsibility, curiosity and service guide our school community.</p></article></div></section></main><SiteFooter/></>;
+}
